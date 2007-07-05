@@ -1,7 +1,7 @@
 %define name	fonts-ttf-arabic-kacst
 %define name_orig KacstArabicFonts
 %define version 1.6.3
-%define release %mkrel 3
+%define release %mkrel 4
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
@@ -15,8 +15,6 @@ URL:		http://ceri.kacst.edu.sa/download
 BuildArch:	noarch
 BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 BuildPrereq: 	freetype-tools
-Requires(post):	chkfontpath
-Requires(postun):chkfontpath
 Requires(post):	fontconfig
 Requires(postun):fontconfig
 Provides:	fonts-ttf-arabic
@@ -41,16 +39,16 @@ pushd %buildroot/%_datadir/%fontdir
 cp fonts.scale fonts.dir
 popd
 
+mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
+ln -s ../../..%_datadir/%fontdir \
+    %{buildroot}%_sysconfdir/X11/fontpath.d/ttf-arabic-kacst:pri=50
+
 %post
-[ -x %_sbindir/chkfontpath ] && %_sbindir/chkfontpath -q -a %_datadir/%fontdir
-touch %{_datadir}/fonts/TTF
 [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
 
 %postun
 # 0 means a real uninstall
 if [ "$1" = "0" ]; then
-   [ -x %_sbindir/chkfontpath ] && \
-   %_sbindir/chkfontpath -q -r %_datadir/%fontdir
    [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
 fi
 
@@ -60,9 +58,8 @@ rm -rf %buildroot
 %files
 %defattr(0644,root,root,0755)
 %doc license.txt
-%dir %_datadir/fonts/TTF/
 %dir %_datadir/%fontdir
 %_datadir/%fontdir/*
-
+%_sysconfdir/X11/fontpath.d/ttf-arabic-kacst:pri=50
 
 
