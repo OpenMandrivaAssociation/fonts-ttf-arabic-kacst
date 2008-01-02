@@ -13,6 +13,7 @@ Group:		System/Fonts/True type
 Source:		http://ceri.kacst.edu.sa/download/%{name_orig}-%{version}.tar.bz2
 URL:		http://ceri.kacst.edu.sa/download
 BuildArch:	noarch
+BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 BuildRequires: 	freetype-tools
 Requires(post):	fontconfig
 Requires(postun):fontconfig
