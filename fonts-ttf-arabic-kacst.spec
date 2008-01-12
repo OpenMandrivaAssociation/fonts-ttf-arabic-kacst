@@ -1,7 +1,7 @@
 %define name	fonts-ttf-arabic-kacst
 %define name_orig KacstArabicFonts
 %define version 1.6.3
-%define release %mkrel 4
+%define release %mkrel 5
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
