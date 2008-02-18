@@ -1,11 +1,11 @@
 %define name	fonts-ttf-arabic-kacst
 %define name_orig KacstArabicFonts
 %define version 1.6.3
-%define release %mkrel 5
+%define release %mkrel 6
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
-Summary:	Free Arabic TrueType fonts
+Summary:	Arabic TrueType fonts
 Version:	%{version}
 Release:	%{release}
 License:	GPL
