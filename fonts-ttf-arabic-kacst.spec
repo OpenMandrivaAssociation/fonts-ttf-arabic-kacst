@@ -1,7 +1,7 @@
 %define name	fonts-ttf-arabic-kacst
 %define name_orig KacstArabicFonts
 %define version 1.6.3
-%define release %mkrel 8
+%define release %mkrel 9
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
@@ -17,6 +17,7 @@ BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 BuildRequires: 	freetype-tools
 Requires(post):	fontconfig
 Requires(postun):fontconfig
+Requires: common-licenses
 Provides:	fonts-ttf-arabic
 
 %description
@@ -57,7 +58,6 @@ rm -rf %buildroot
 
 %files
 %defattr(0644,root,root,0755)
-%doc license.txt
 %dir %_datadir/%fontdir
 %_datadir/%fontdir/*
 %_sysconfdir/X11/fontpath.d/ttf-arabic-kacst:pri=50
