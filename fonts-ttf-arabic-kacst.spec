@@ -1,31 +1,34 @@
-%define name	fonts-ttf-arabic-kacst
-%define name_orig KacstArabicFonts
-%define version 1.6.3
-%define release %mkrel 9
+%define name fonts-ttf-arabic-kacst
+%define name_orig kacst_fonts
+%define srcname KacstArabicFonts-2.0
+%define version 2.0
+%define release %mkrel 1
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
 Summary:	Arabic TrueType fonts
 Version:	%{version}
 Release:	%{release}
-License:	GPL
+License:	GPLv2
 Group:		System/Fonts/True type
-Source:		http://ceri.kacst.edu.sa/download/%{name_orig}-%{version}.tar.bz2
-URL:		http://ceri.kacst.edu.sa/download
+Source:		http://downloads.sourceforge.net/project/arabeyes/kacst_fonts/%{name_orig}_%{version}.tar.bz2
+URL:		http://www.arabeyes.org/resources.php
 BuildArch:	noarch
 BuildRoot:	%_tmppath/%name-%version-%release-buildroot
-BuildRequires: 	freetype-tools
+BuildRequires:	freetype-tools
 Requires(post):	fontconfig
 Requires(postun):fontconfig
-Requires: common-licenses
+Requires:	common-licenses
 Provides:	fonts-ttf-arabic
 
 %description
 This Package provides Free Arabic TrueType fonts donated under the GPL license
-by King Abdulaziz City for Science and Technology (KACST).
+by King Abdul-Aziz City for Science and Technology (KACST).
+
+Now maintained by Arabeyes http://www.arabeyes.org
 
 %prep
-%setup -n %name_orig-%version -q
+%setup -q -n %{srcname}
 
 %build
 
@@ -61,5 +64,3 @@ rm -rf %buildroot
 %dir %_datadir/%fontdir
 %_datadir/%fontdir/*
 %_sysconfdir/X11/fontpath.d/ttf-arabic-kacst:pri=50
-
-
