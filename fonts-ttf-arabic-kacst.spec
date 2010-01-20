@@ -2,7 +2,7 @@
 %define name_orig kacst_fonts
 %define srcname KacstArabicFonts-2.0
 %define version 2.0
-%define release %mkrel 1
+%define release %mkrel 2
 %define fontdir	fonts/TTF/arabic/kacst
 
 Name:		%{name}
@@ -16,8 +16,6 @@ URL:		http://www.arabeyes.org/resources.php
 BuildArch:	noarch
 BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 BuildRequires:	freetype-tools
-Requires(post):	fontconfig
-Requires(postun):fontconfig
 Requires:	common-licenses
 Provides:	fonts-ttf-arabic
 
@@ -46,15 +44,6 @@ popd
 mkdir -p %{buildroot}%_sysconfdir/X11/fontpath.d/
 ln -s ../../..%_datadir/%fontdir \
     %{buildroot}%_sysconfdir/X11/fontpath.d/ttf-arabic-kacst:pri=50
-
-%post
-[ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
-
-%postun
-# 0 means a real uninstall
-if [ "$1" = "0" ]; then
-   [ -x %_bindir/fc-cache ] && %{_bindir}/fc-cache 
-fi
 
 %clean
 rm -rf %buildroot
