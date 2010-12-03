@@ -15,7 +15,7 @@ Source:		http://downloads.sourceforge.net/project/arabeyes/kacst_fonts/%{name_or
 URL:		http://www.arabeyes.org/resources.php
 BuildArch:	noarch
 BuildRoot:	%_tmppath/%name-%version-%release-buildroot
-BuildRequires:	freetype-tools
+BuildRequires:	mkfontscale
 Requires:	common-licenses
 Provides:	fonts-ttf-arabic
 
@@ -37,7 +37,7 @@ mkdir -p %buildroot/%_datadir/%fontdir
 cp *.ttf %buildroot/%_datadir/%fontdir
 
 pushd %buildroot/%_datadir/%fontdir
-%_sbindir/ttmkfdir -u -o fonts.scale
+mkfontscale
 cp fonts.scale fonts.dir
 popd
 
