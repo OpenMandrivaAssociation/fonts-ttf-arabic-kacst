@@ -14,6 +14,7 @@ Group:		System/Fonts/True type
 Source:		http://downloads.sourceforge.net/project/arabeyes/kacst_fonts/%{name_orig}_%{version}.tar.bz2
 URL:		http://www.arabeyes.org/resources.php
 BuildArch:	noarch
+BuildRequires: fontconfig
 BuildRoot:	%_tmppath/%name-%version-%release-buildroot
 BuildRequires:	mkfontscale
 Requires:	common-licenses
