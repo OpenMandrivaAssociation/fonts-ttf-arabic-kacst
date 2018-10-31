@@ -5,7 +5,7 @@
 Summary:	Arabic TrueType fonts
 Name:		fonts-ttf-arabic-kacst
 Version:	2.0
-Release:	16
+Release:	17
 License:	GPLv2
 Group:		System/Fonts/True type
 Url:		http://www.arabeyes.org/resources.php
