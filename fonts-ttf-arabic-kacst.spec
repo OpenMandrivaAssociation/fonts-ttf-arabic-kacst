@@ -8,7 +8,7 @@ Version:	2.0
 Release:	18
 License:	GPLv2
 Group:		System/Fonts/True type
-Url:		http://www.arabeyes.org/resources.php
+Url:		https://www.arabeyes.org/resources.php
 Source0:	http://downloads.sourceforge.net/project/arabeyes/kacst_fonts/%{oname}_%{version}.tar.bz2
 BuildArch:	noarch
 BuildRequires:	fontconfig
